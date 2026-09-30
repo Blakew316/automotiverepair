@@ -1,0 +1,27 @@
+{
+  "_readme": "Single source of truth for shop details. Edit, then run `node scripts/sync.mjs` to update every page. Values marked PLACEHOLDER must be replaced before launch.",
+  "name": "Clinton Complete Auto Care",
+  "tagline": "And Small Engine Repair",
+  "phone": "(555) 555-0123",
+  "phoneE164": "+15555550123",
+  "email": "service@example.com",
+  "street": "123 Main Street",
+  "city": "Clinton",
+  "region": "ST",
+  "postalCode": "00000",
+  "country": "US",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Clinton+Complete+Auto+Care",
+  "siteUrl": "https://www.example.com",
+  "timeZone": "",
+  "hours": [
+    { "days": ["Mo", "Tu", "We", "Th", "Fr"], "opens": "08:00", "closes": "17:30" },
+    { "days": ["Sa"], "opens": "08:00", "closes": "13:00" }
+  ],
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "google": ""
+  },
+  "formEndpoint": "",
+  "_placeholders": ["phone", "phoneE164", "email", "street", "city", "region", "postalCode", "mapsUrl", "siteUrl", "hours"]
+}
