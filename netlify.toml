@@ -3,11 +3,28 @@
   publish = "."
   command = ""
 
+# CSS/JS URLs carry a content hash (?v=…, added by scripts/sync.mjs), so they can be cached for a year.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Pages always revalidate (fast 304s) so edits show up immediately.
 [[headers]]
   for = "/*"
   [headers.values]

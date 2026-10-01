@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const biz = JSON.parse(readFileSync(join(ROOT, "business.json"), "utf8"));
@@ -114,6 +115,9 @@ const listPages = () => {
   return out.sort();
 };
 
+// Content hash for cache-busting, so CSS/JS can be cached long-term.
+const assetVersion = (rel) => createHash("sha1").update(readFileSync(join(ROOT, rel))).digest("hex").slice(0, 10);
+
 const tokens = (page) => {
   const depth = page.split("/").length - 1;
   // 404.html is served at arbitrary URLs, so it uses root-absolute paths.
@@ -132,6 +136,8 @@ const tokens = (page) => {
     mapsUrl: esc(biz.mapsUrl),
     siteUrl: esc(site),
     formEndpoint: esc(biz.formEndpoint || ""),
+    cssv: assetVersion("assets/css/site.css"),
+    jsv: assetVersion("assets/js/site.js"),
     year: String(new Date().getFullYear()),
     servicesMega,
     servicesSheet,

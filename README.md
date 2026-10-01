@@ -57,7 +57,7 @@ The animated "status" chips on each page (for example "Front pads: 3 mm") are il
 
 - **Page content**: edit the page's HTML directly. Shared regions are marked like `<!-- @partial header --> … <!-- @end header -->`; don't edit inside those markers, because they are regenerated.
 - **Header, footer, mobile tab bar, call-to-action band, icons**: edit `partials/*.html` (services list: `partials/services.json`), then run `node scripts/sync.mjs`.
-- **Styles and behaviour**: `assets/css/site.css` (design tokens at the top) and `assets/js/site.js`.
+- **Styles and behaviour**: `assets/css/site.css` (design tokens at the top) and `assets/js/site.js`. After editing either, run `node scripts/sync.mjs`: it stamps every page with a new `?v=` version so visitors get the update despite long-term caching.
 - **Check your work**: `node scripts/check.mjs` validates every page (one `<h1>`, links and assets resolve, labels, ids, no leftover placeholders).
 - **Preview locally**: `npm run serve`, then open http://localhost:8080.
 

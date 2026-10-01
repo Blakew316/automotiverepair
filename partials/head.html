@@ -6,6 +6,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{root}}assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="{{root}}assets/img/apple-touch-icon.png">
 <link rel="manifest" href="{{root}}site.webmanifest">
-<link rel="stylesheet" href="{{root}}assets/css/site.css">
-<script src="{{root}}assets/js/site.js" defer></script>
-<script type="speculationrules">{"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"*.pdf"}},{"not":{"selector_matches":"[target=_blank]"}}]},"eagerness":"moderate"}]}</script>
+<link rel="stylesheet" href="{{root}}assets/css/site.css?v={{cssv}}">
+<script src="{{root}}assets/js/site.js?v={{jsv}}" defer></script>
+<script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"selector_matches":".nav-link, .header-book, .tabbar a"}]},"eagerness":"immediate"}],"prerender":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"*.pdf"}},{"not":{"selector_matches":"[target=_blank]"}}]},"eagerness":"moderate"}]}</script>

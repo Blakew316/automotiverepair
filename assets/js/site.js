@@ -17,6 +17,7 @@
      ------------------------------------------------------------------ */
   const header = $("[data-header]");
   const roadmaps = $$(".roadmap");
+  const roadmapSteps = roadmaps.map((rm) => $$(".roadmap-step", rm));
   let ticking = false;
 
   const measureRoads = () => {
@@ -28,18 +29,21 @@
 
   const onScroll = () => {
     ticking = false;
+    // Read everything first, then write, so a scroll frame never forces an extra layout.
     const y = window.scrollY;
     const max = root.scrollHeight - innerHeight;
+    const vh = innerHeight;
+    const rects = roadmaps.map((rm) => rm.getBoundingClientRect());
     if (header) {
       header.classList.toggle("is-scrolled", y > 6);
       header.style.setProperty("--progress", max > 0 ? clamp(y / max).toFixed(4) : 0);
     }
-    const vh = innerHeight;
-    roadmaps.forEach((rm) => {
-      const r = rm.getBoundingClientRect();
+    roadmaps.forEach((rm, k) => {
+      const r = rects[k];
+      if (r.bottom < -vh || r.top > vh * 2) return; // far offscreen: nothing visible changes
       const p = reduceMotion.matches ? 1 : clamp((vh * 0.82 - r.top) / (r.height + vh * 0.12));
       rm.style.setProperty("--p", p.toFixed(4));
-      const steps = $$(".roadmap-step", rm);
+      const steps = roadmapSteps[k];
       steps.forEach((s, i) => s.classList.toggle("is-reached", p >= i / steps.length + 0.015));
     });
   };
@@ -487,6 +491,22 @@
     d.addEventListener("pointerover", handler, { passive: true });
     d.addEventListener("touchstart", handler, { passive: true });
     d.addEventListener("focusin", handler);
+    // Warm the main navigation targets once the page is idle.
+    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
+    addEventListener("load", () => idle(() => $$(".nav-link[href], .header-book, .tabbar a[href]").forEach(prefetch)), { once: true });
+  }
+
+  /* ------------------------------------------------------------------
+     Performance: pause looping animations (tickers, hero art, road) while
+     they're offscreen so scrolling and navigation stay smooth.
+     ------------------------------------------------------------------ */
+  if ("IntersectionObserver" in window) {
+    const loopers = $$("main > section, .ticker, .cta-road, .makes-ticker");
+    const pauser = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.target.classList.toggle("is-offscreen", !e.isIntersecting)),
+      { rootMargin: "200px 0px" }
+    );
+    loopers.forEach((el) => pauser.observe(el));
   }
 
   /* ------------------------------------------------------------------
