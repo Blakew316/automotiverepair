@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Car Care Guides &amp; Warning Light Decoder | Clinton Complete Auto Care</title>
-<meta name="description" content="Decode dashboard warning lights, see the maintenance that typically comes due by mileage, and get seasonal checklists for your car, mower and snow blower from Clinton Complete Auto Care.">
+<meta name="description" content="Decode dashboard warning lights, see what maintenance typically comes due by mileage, and get seasonal checklists for your car, mower and snow blower.">
 <meta property="og:title" content="Car Care Guides &amp; Warning Light Decoder | Clinton Complete Auto Care">
 <meta property="og:description" content="Tap a warning light to see what it means, roll the odometer to see what&rsquo;s typically due, and grab seasonal checklists for cars and small engines.">
 <!-- @partial head -->
@@ -312,15 +312,23 @@
   .can-art .bottle { transform-box: view-box; transform-origin: 102px 56px; animation: pour 5.2s var(--ease-in-out) infinite; }
   @keyframes drip { 0%, 10% { opacity: 0; transform: translate(0, 0); } 18% { opacity: 1; } 70% { opacity: 1; transform: translate(10px, 19px); } 80%, 100% { opacity: 0; transform: translate(11px, 21px); } }
   @media (max-width: 639.98px) { .can-art { display: none; } }
+  @media (min-width: 640px) and (max-width: 959.98px) {
+    .storage-head { display: grid; grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 260px); column-gap: clamp(24px, 4vw, 48px); align-items: start; }
+    .storage-head > * { grid-column: 1 / -1; }
+    .storage-head > .eyebrow, .storage-head > h2, .storage-head > .lead { grid-column: 1; }
+    .storage-head > .eyebrow { justify-self: start; }
+    .storage-head .can-art { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 100%; margin-top: 0; }
+    .tips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @keyframes pour { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-4deg); } }
   .tips { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
   .tip { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px; align-items: start; padding: clamp(18px, .8rem + .8vw, 24px); border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-1); }
   .tip h3 { font-size: 1.1rem; }
   .tip p { margin-top: 6px; color: var(--ink-3); font-size: .97rem; }
   .tip:hover .icon-tile { transform: rotate(-6deg); background: var(--foil); }
-  @media (max-width: 639.98px) {
-    /* Phones: icon sits beside the title and the copy uses the full card width */
-    .tip { gap: 10px 14px; align-items: center; padding: 16px 18px; }
+  @media (max-width: 959.98px) {
+    /* Phones and the 2-up tablet grid: icon sits beside the title and the copy uses the full card width */
+    .tip { gap: 10px 14px; align-items: center; align-content: start; padding: 16px 18px; }
     .tip > div { display: contents; }
     .tip .icon-tile { width: 40px; height: 40px; border-radius: 12px; }
     .tip .icon-tile .icon { width: 20px; height: 20px; }
@@ -331,7 +339,7 @@
   .urgent {
     position: relative; display: grid; gap: clamp(28px, 1.5rem + 2vw, 56px);
     padding: clamp(24px, 1rem + 2.6vw, 56px); border-radius: var(--r-xl);
-    background: var(--warn-soft); border: 1px solid rgba(154, 93, 18, .16); overflow: hidden;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--warn-soft) 40%, var(--paper)) 10%, var(--warn-soft) 100%); border: 1px solid rgba(154, 93, 18, .14); overflow: hidden;
   }
   .urgent::after { content: ""; position: absolute; right: -12%; top: -40%; width: 55%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 255, 255, .55), transparent); pointer-events: none; }
   .urgent > * { position: relative; z-index: 1; min-width: 0; }
@@ -444,7 +452,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -499,7 +507,7 @@
           </ol>
         </nav>
         <p class="eyebrow mt-3"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Car care guides</p>
-        <h1 id="page-title">Know your car. Catch problems early.</h1>
+        <h1 id="page-title"><span class="nowrap">Know your car.</span> <span class="nowrap">Spot trouble early.</span></h1>
         <p class="lead">Plain-English help with the lights on your dash, the maintenance that comes due as the miles add up, and the seasonal care that keeps your car, mower and snow blower starting when you need them.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#decoder"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>Decode a warning light</a>
@@ -758,7 +766,7 @@
             <li>Spark plugs on some older engines</li>
           </ul>
           <div class="miles-foot">
-            <p class="miles-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><strong>Typical intervals, always follow your owner&rsquo;s manual.</strong> Towing, lots of short trips, dusty roads and extreme heat or cold often call for the severe-service schedule.</span></p>
+            <p class="miles-note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span><strong>Typical intervals only. Always follow your owner&rsquo;s manual.</strong> Towing, lots of short trips, dusty roads and extreme heat or cold often call for the severe-service schedule.</span></p>
             <div class="cluster">
               <a class="btn btn-primary btn-sm" href="appointment.html?service=oil-change"><svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>Book maintenance</a>
               <a class="link-arrow" href="services/oil-change.html">Oil &amp; Maintenance <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
@@ -874,7 +882,7 @@
               <div class="season-card-head"><span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg></span><div><h3>Your car</h3><p>Cold-weather ready</p></div></div>
               <ul class="checklist">
                 <li>Winter battery test: cold weather cuts a battery&rsquo;s starting power</li>
-                <li>Check tire pressure often; it drops about 1 psi for every 10&deg;F the temperature falls</li>
+                <li>Check tire pressure often, since it falls roughly 1 psi with each 10&deg;F drop in temperature</li>
                 <li>Use washer fluid rated for freezing temperatures</li>
                 <li>Keep the gas tank at least half full</li>
                 <li>Carry jumper cables, a flashlight, a blanket and a scraper</li>
@@ -980,7 +988,7 @@
         <div class="urgent-copy">
           <span class="hazard" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.2 21.6 20H2.4z"/><path d="M12 9.6 16.2 17H7.8z"/></svg></span>
           <p class="eyebrow">Don&rsquo;t wait</p>
-          <h2 id="urgent-title">Call us right away if&hellip;</h2>
+          <h2 id="urgent-title">Call us <span class="nowrap">right away if&hellip;</span></h2>
           <p class="lead">These can mean damage is happening right now. Pull over when it&rsquo;s safe, turn off the engine and give us a call. We&rsquo;ll help you decide whether to drive it in or have it towed.</p>
           <div class="urgent-actions">
             <a class="btn btn-primary btn-lg" href="tel:+15555550123" data-biz-href="tel"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-biz="phone">(555) 555-0123</span></a>
@@ -1031,7 +1039,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -1062,7 +1070,7 @@
       <h2 class="footer-subhead">Help</h2>
       <ul>
         <li><a href="appointment.html">Book a service</a></li>
-        <li><a href="resources.html">Car care guides</a></li>
+        <li><a href="resources.html" aria-current="page">Car care guides</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -1100,7 +1108,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

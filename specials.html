@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Specials &amp; Coupons | Clinton Complete Auto Care</title>
-<meta name="description" content="Current specials on oil and filter service, small engine tune-ups, brake inspections, A/C performance checks and pre-purchase inspections. Book with an offer or print a coupon.">
+<meta name="description" content="Current specials on oil and filter service, small engine tune-ups, brake inspections, A/C checks and pre-purchase inspections. Book with an offer or print it.">
 <meta property="og:title" content="Specials worth the trip | Clinton Complete Auto Care">
 <meta property="og:description" content="Save on the maintenance that keeps your car, truck and mower running. Book with an offer or print a coupon.">
 <!-- @partial head -->
@@ -56,7 +56,7 @@
 
   /* ---------- Coupons ---------- */
   .offers-grid { display: grid; gap: clamp(18px, 1rem + 1vw, 30px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr)); }
-  .offers-head .lead { text-wrap: balance; }
+  @media (min-width: 640px) { .offers-head .lead { text-wrap: balance; } }
   .coupon-wrap { --coupon-bg: var(--ivory); --stub-w: 168px; container-type: inline-size; }
   .coupon {
     position: relative; isolation: isolate; height: 100%;
@@ -142,6 +142,8 @@
     .coupon-wrap:hover .coupon-scissors, .coupon-wrap.is-clipping .coupon-scissors { animation-name: snip-across; }
   }
   @keyframes snip-across { 0% { left: 2px; opacity: 0; } 15% { opacity: 1; } 85% { left: calc(100% - 34px); opacity: 1; } 100% { left: calc(100% - 26px); opacity: 0; } }
+  /* keep "Book" and "Print" on one line on 360px phones */
+  @container (max-width: 345px) { .coupon-actions { gap: 4px; } .coupon-actions .btn-ghost { padding-inline: 12px; } }
   @container (max-width: 299.98px) { .coupon-actions .btn { flex: 1 1 100%; } }
 
   .offer-help { display: flex; flex-direction: column; gap: 12px; justify-content: center; border-style: dashed; border-color: var(--line-strong); }
@@ -152,7 +154,7 @@
   /* ---------- How to redeem ---------- */
   .redeem-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; counter-reset: step; }
   @media (min-width: 860px) { .redeem-steps { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-  .redeem-step { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: start; padding: 22px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-1); }
+  .redeem-step { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: start; align-content: start; padding: 22px; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-1); }
   .redeem-step .icon-tile { grid-row: 1 / span 2; }
   .redeem-num { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
   .redeem-step h3 { font-size: 1.12rem; }
@@ -276,7 +278,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -587,7 +589,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -611,7 +613,7 @@
       <ul>
         <li><a href="about.html">About us</a></li>
         <li><a href="fleet.html">Fleet services</a></li>
-        <li><a href="specials.html">Specials</a></li>
+        <li><a href="specials.html" aria-current="page">Specials</a></li>
         <li><a href="brands.html">Makes we service</a></li>
         <li><a href="careers.html">Careers</a></li>
       </ul>
@@ -656,7 +658,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

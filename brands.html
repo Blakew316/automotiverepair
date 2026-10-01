@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Makes We Service | Clinton Complete Auto Care</title>
-<meta name="description" content="Domestic, Asian and European cars, SUVs, light trucks and vans, plus small engine brands for mowers and generators. Search the makes Clinton Complete Auto Care works on.">
+<meta name="description" content="Domestic, Asian and European cars, SUVs, light trucks and vans, plus small engine brands. Search the makes Clinton Complete Auto Care works on.">
 <meta property="og:title" content="Makes We Service | Clinton Complete Auto Care">
 <meta property="og:description" content="Search the car, truck and small engine makes we work on: domestic, Asian, European and outdoor power equipment.">
 <!-- @partial head -->
@@ -96,7 +96,6 @@
     border-radius: 18px; background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-1);
     view-transition-class: make;
   }
-  .make-tile[hidden] { display: none; }
   .make-mono {
     flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px;
     background: var(--mono-bg, var(--foil)); background-size: 240% 240%; background-position: 0% 0%;
@@ -143,7 +142,6 @@
     background: var(--paper); border: 1px dashed var(--line-strong);
     animation: rise-in .45s var(--ease) both;
   }
-  .makes-empty[hidden] { display: none; }
   .makes-empty h3 { font-size: 1.35rem; }
   .makes-empty p { max-width: 30em; color: var(--ink-3); }
   .makes-empty .cluster { justify-content: center; margin-top: 6px; }
@@ -177,18 +175,11 @@
     .veh-card p { font-size: .86rem; line-height: 1.4; }
   }
   .work-row { display: grid; gap: clamp(12px, .6rem + .6vw, 22px); margin-top: clamp(12px, .6rem + .6vw, 22px); }
-  @media (min-width: 900px) { .work-row { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1200px) { .work-row { grid-template-columns: 1fr 1fr; } } /* side by side only once the small-engine card has room for its link */
   .work-row .callout { align-items: center; padding: 20px 22px; border-radius: var(--r-lg); }
   .work-row .callout .icon-tile { background: var(--paper); }
   .work-row .callout p { font-size: .98rem; }
   .small-link { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: var(--r-lg); }
-  /* This card reveals via data-reveal-stagger, whose shared rule pins transform
-     and replaces the transition list; lift with translate instead. */
-  .js .small-link[data-reveal] {
-    transition: opacity .8s var(--ease), transform .8s var(--ease), translate var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease);
-    transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s, 0s;
-  }
-  .js .small-link[data-reveal].is-in:hover { translate: 0 -4px; }
   .small-link .veh-mini-wrap { flex: none; width: 88px; height: 64px; display: grid; place-items: end center; border-radius: 14px; background: var(--foil); overflow: hidden; }
   .small-link .veh-mini { width: 70px; margin-bottom: 8px; }
   .small-link:hover .veh-mini { --wheels: running; transform: translateX(4px); }
@@ -292,7 +283,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -564,7 +555,7 @@
         </div>
 
         <div class="makes-foot">
-          <p class="makes-more"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Not listed? That doesn&rsquo;t always mean no, and coverage can vary by model and repair. Call <a href="tel:+15555550123" data-biz-href="tel"><span data-biz="phone">(555) 555-0123</span></a> with the year, make and model and we&rsquo;ll give you a straight answer.</span></p>
+          <p class="makes-more"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Not listed? That doesn&rsquo;t always mean no, and coverage can vary by model and repair. Call <a class="nowrap" href="tel:+15555550123" data-biz-href="tel"><span data-biz="phone">(555) 555-0123</span></a> with the year, make and model and we&rsquo;ll give you a straight answer.</span></p>
           <p class="tm-note">Vehicle and equipment brand names are trademarks of their respective owners. They&rsquo;re listed only to show the makes we work on. No affiliation with, or endorsement by, any manufacturer is implied.</p>
         </div>
       </div>
@@ -643,7 +634,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -668,7 +659,7 @@
         <li><a href="about.html">About us</a></li>
         <li><a href="fleet.html">Fleet services</a></li>
         <li><a href="specials.html">Specials</a></li>
-        <li><a href="brands.html">Makes we service</a></li>
+        <li><a href="brands.html" aria-current="page">Makes we service</a></li>
         <li><a href="careers.html">Careers</a></li>
       </ul>
       <h2 class="footer-subhead">Help</h2>
@@ -712,7 +703,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

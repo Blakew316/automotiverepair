@@ -47,6 +47,10 @@ for (const page of pages) {
   if (!/<title>[^<]{10,}<\/title>/.test(html)) errors.push("missing/short <title>");
   if (!/<meta name="description" content="[^"]{50,}"/.test(html)) errors.push("missing/short meta description");
   if (!/<body[^>]*data-page="[\w-]+"/.test(html)) errors.push("body is missing data-page");
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || "";
+  const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || "";
+  if (title.replace(/&amp;/g, "&").length > 70) warns.push(`title is ${title.length} chars (aim for 70 or fewer)`);
+  if (desc.replace(/&amp;/g, "&").length > 160) warns.push(`meta description is ${desc.length} chars (aim for 160 or fewer)`);
   for (const p of REQUIRED_PARTIALS) {
     if (!new RegExp(`<!-- @partial ${p} -->[\\s\\S]*?<!-- @end ${p} -->`).test(html)) errors.push(`missing partial ${p}`);
   }

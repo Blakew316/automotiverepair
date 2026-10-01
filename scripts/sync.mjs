@@ -178,6 +178,19 @@ const markActive = (html, navKey, tabKey, pagePath, root) => {
   return html;
 };
 
+// Any remaining link to the current page (mega menu, sheet list, footer) gets aria-current="page".
+const markCurrentLinks = (html, pagePath) => {
+  const here = pagePath.replace(/\\/g, "/");
+  const dir = here.includes("/") ? here.slice(0, here.lastIndexOf("/") + 1) : "";
+  return html.replace(/<a\b([^>]*?)\bhref="([^"#?]+)"([^>]*)>/g, (m, pre, href, post) => {
+    if (/aria-current=/.test(pre + post) || /^(https?:|mailto:|tel:|\/)/.test(href)) return m;
+    const parts = (dir + href).split("/");
+    const out = [];
+    for (const seg of parts) seg === ".." ? out.pop() : out.push(seg);
+    return out.join("/") === here ? `<a${pre}href="${href}"${post} aria-current="page">` : m;
+  });
+};
+
 const BIZ_TEXT = (t) => ({
   name: t.name,
   phone: t.phone,
@@ -201,6 +214,7 @@ const syncPage = (page) => {
     if (!PARTIALS[name]) throw new Error(`${page}: unknown partial "${name}"`);
     let body = fill(PARTIALS[name](), t);
     if (name === "header" || name === "tabbar") body = markActive(body, navKey, tabKey, page, t.root);
+    if (["header", "tabbar", "footer"].includes(name)) body = markCurrentLinks(body, page);
     return `<!-- @partial ${name} -->\n${body}\n<!-- @end ${name} -->`;
   });
 

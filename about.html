@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About Us | Clinton Complete Auto Care &amp; Small Engine Repair</title>
-<meta name="description" content="Clinton Complete Auto Care looks after cars, trucks, SUVs and vans, plus the mowers, generators and small engines at home and work. Honest advice, written estimates and careful work.">
+<meta name="description" content="Clinton Complete Auto Care looks after cars, trucks, SUVs and vans, plus mowers, generators and other small engines. Honest advice and written estimates.">
 <meta property="og:title" content="About Clinton Complete Auto Care">
 <meta property="og:description" content="A neighborhood shop for engines of every size: complete auto care, and small engine repair too.">
 <!-- @partial head -->
@@ -50,7 +50,9 @@
   .name-row h3 { font-size: clamp(1.65rem, 1.15rem + 1.6vw, 2.5rem); line-height: 1.08; letter-spacing: -0.032em; font-weight: 700; }
   .name-row p { color: var(--ink-3); max-width: 36em; }
 
-  /* Values */
+  /* Values: 2 x 2 until four columns fit, so the last card never sits alone */
+  @media (min-width: 600px) and (max-width: 1099.98px) { .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) { .values-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .value-card h3 { font-size: 1.14rem; }
   .value-card:hover .icon-tile { transform: rotate(-8deg) scale(1.06); background: var(--foil); }
   @media (max-width: 599.98px) {
@@ -103,10 +105,12 @@
   .visit-row small { display: block; font-size: .74rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
   .visit-row strong { display: block; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
   .visit-row .chev { margin-left: auto; width: 18px; height: 18px; color: var(--ink-4); }
+  @media (max-width: 479.98px) { .visit-actions .btn { flex: 1 1 100%; } } /* two equal full-width buttons instead of a ragged pair */
   .hours-card h3 { display: flex; align-items: center; gap: 10px; }
   .hours-card .hours-table { margin-top: 14px; }
   .hours-card .open-status { margin-top: 8px; }
-  .cluster .link-arrow { min-height: 44px; }
+  /* a section head beside its content in a .split: the split gap does the spacing (avoids a double gap when stacked) */
+  .split > .section-head { margin-bottom: 0; }
   /* land the "Visit the shop" jump on the content, not the section padding (the heading itself animates in, so it can't be the target) */
   .visit-section { scroll-margin-top: calc(24px - clamp(64px, 5rem + 3vw, 128px)); }
 </style>
@@ -205,7 +209,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -295,8 +299,8 @@
     <div class="container">
       <div class="split split-wide-right" style="align-items: start">
         <div class="section-head" data-reveal="left">
-          <p class="eyebrow">The name on the sign</p>
-          <h2 id="name-title">Every word on the sign is a promise.</h2>
+          <p class="eyebrow">What&rsquo;s in a name</p>
+          <h2 id="name-title">Every word in our name is a promise.</h2>
           <p class="lead">Our name is a pretty good summary of what we do. Here&rsquo;s what each part of it means when you pull in.</p>
         </div>
         <div class="name-rows" data-reveal-stagger>
@@ -328,7 +332,7 @@
         <h2 id="values-title">How we like to work.</h2>
         <p class="lead">Four simple ideas guide every job, whether it&rsquo;s a pickup truck or a push mower.</p>
       </div>
-      <div class="grid grid-4" data-reveal-stagger>
+      <div class="grid grid-4 values-grid" data-reveal-stagger>
         <div class="card value-card">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
           <h3 class="mt-2">Honesty</h3>
@@ -461,7 +465,7 @@
               <svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>
             </a>
           </address>
-          <div class="cluster mt-3">
+          <div class="cluster mt-3 visit-actions">
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Clinton+Complete+Auto+Care" data-biz-href="maps" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-directions"/></svg>Get directions</a>
             <a class="btn btn-secondary" href="contact.html"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Send a message</a>
           </div>
@@ -518,7 +522,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -540,7 +544,7 @@
     <nav class="footer-col" aria-labelledby="footer-company">
       <h2 id="footer-company">Company</h2>
       <ul>
-        <li><a href="about.html">About us</a></li>
+        <li><a href="about.html" aria-current="page">About us</a></li>
         <li><a href="fleet.html">Fleet services</a></li>
         <li><a href="specials.html">Specials</a></li>
         <li><a href="brands.html">Makes we service</a></li>
@@ -587,7 +591,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

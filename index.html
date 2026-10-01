@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Clinton Complete Auto Care | Auto Repair, Maintenance &amp; Small Engine Repair</title>
-<meta name="description" content="Clinton Complete Auto Care handles everything from oil changes, brakes and check-engine diagnostics to engine work, plus lawn mowers, generators and small engine repair. Clear estimates, your approval first.">
+<title>Clinton Complete Auto Care | Auto &amp; Small Engine Repair</title>
+<meta name="description" content="Auto and small engine repair in one shop: oil changes, brakes, diagnostics, engine work, mowers and generators. Written estimates, your approval first.">
 <meta property="og:title" content="Clinton Complete Auto Care: complete auto care, done right">
 <meta property="og:description" content="Auto repair, maintenance and small engine repair with clear estimates and your approval first.">
 <!-- @partial head -->
@@ -32,10 +32,12 @@
 <style>
   /* Home-only */
   .hero-visual { position: relative; padding-block: 24px 8px; }
+  .hero-visual .biz-card { margin-inline: auto; } /* stays centred when the hero stacks */
   .hero-visual .note-1 { top: -6px; left: -10px; }
   .hero-visual .note-2 { bottom: 2px; right: -8px; animation-delay: 1.15s, 2.4s; }
   @media (max-width: 979.98px) { .hero-visual .float-note { display: none; } }
   .hero-status { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 22px; font-size: .92rem; color: var(--ink-3); }
+  .hero-status [data-biz] { text-wrap: balance; } /* hours wrap at the day break, not mid-range */
 
   .makes-ticker { display: grid; gap: 10px; }
   .makes-ticker .ticker { border: 0; background: none; padding-block: 6px; }
@@ -46,6 +48,7 @@
 
   /* Small engine illustration */
   .mower-art { width: 100%; max-width: 520px; margin-inline: auto; overflow: visible; }
+  @media (max-width: 899.98px) { .mower-art { max-width: 420px; } }
   .mower-art .wheel { transform-box: fill-box; transform-origin: center; animation: art-spin 2.4s linear infinite; }
   .mower-art .ground-dash { animation: road-move 1.2s linear infinite; }
   .mower-art .body { animation: mower-idle .18s steps(2) infinite; }
@@ -66,9 +69,15 @@
   .promise .icon-tile { margin-bottom: 14px; }
   .promise h3 { font-size: 1.08rem; }
   .promise p { margin-top: 6px; color: var(--ink-3); font-size: .96rem; }
+  @media (max-width: 639.98px) {
+    /* Phones: promises read as compact rows, like the service cards */
+    .promise { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; padding: 16px; border-radius: var(--r); }
+    .promise .icon-tile { grid-row: 1 / span 2; margin: 0; width: 44px; height: 44px; border-radius: 13px; }
+    .promise .icon-tile .icon { width: 23px; height: 23px; }
+    .promise h3 { align-self: end; font-size: 1.04rem; }
+    .promise p { margin-top: 2px; font-size: .92rem; line-height: 1.42; }
+  }
 
-  .explore-card { display: grid; gap: 12px; align-content: start; min-height: 100%; }
-  .explore-card .link-arrow { margin-top: 6px; }
 </style>
 </head>
 <body data-page="home" id="top">
@@ -140,7 +149,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-header>
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="Clinton Complete Auto Care home">
+    <a class="brand" href="index.html" aria-label="Clinton Complete Auto Care home" aria-current="page">
       <span class="brand-badge"><img src="assets/img/logo-mark-white.webp" alt="" width="480" height="207" decoding="async"></span>
       <span class="brand-text" aria-hidden="true"><span class="brand-line1">Complete Auto Care</span><span class="brand-line2">&amp; Small Engine Repair</span></span>
     </a>
@@ -165,7 +174,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -198,7 +207,7 @@
       <div class="hero-copy hero-in">
         <p class="chip chip-foil"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>Cars, trucks &amp; small engines</p>
         <h1 id="hero-title">Complete auto care, <span class="foil-text">done right.</span></h1>
-        <p class="lead">From oil changes and brakes to check-engine diagnostics and engine work, plus the mowers, generators and power equipment that keep your weekends running. Clear estimates, your approval first, and no surprises.</p>
+        <p class="lead">Oil changes, brakes, check-engine diagnostics and engine work, plus the mowers, generators and power equipment that keep your weekends running. Clear estimates, your approval first, and no surprises.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="appointment.html"><svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>Book a service</a>
           <a class="btn btn-secondary btn-lg" href="tel:+15555550123" data-biz-href="tel"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-biz="phone">(555) 555-0123</span></a>
@@ -228,7 +237,7 @@
         </div>
         <div class="float-note note-2" aria-hidden="true">
           <span class="icon-tile icon-tile-sm icon-tile-ink"><svg class="icon"><use href="#i-mower"/></svg></span>
-          <span><strong>Mower won&rsquo;t start?</strong><small>Small engines are our specialty too.</small></span>
+          <span><strong>Mower won&rsquo;t start?</strong><small>We fix small engines too.</small></span>
         </div>
       </div>
     </div>
@@ -333,7 +342,7 @@
         <a class="card card-link service-card" href="services/inspections.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-inspection"/></svg></span>
           <h3>Inspections</h3>
-          <p>Pre-purchase inspections, road-trip checks and seasonal safety inspections, with a clear written report.</p>
+          <p>Pre-purchase inspections, road-trip checks and seasonal checkups, with a clear written report.</p>
           <span class="link-arrow">Inspections <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
         </a>
         <a class="card card-link service-card" href="services/small-engine-repair.html">
@@ -360,7 +369,7 @@
           <div class="stack" style="--stack: 18px" data-reveal="left">
             <p class="eyebrow">And small engine repair</p>
             <h2 id="small-title">From the driveway to the backyard.</h2>
-            <p class="lead">It&rsquo;s right there on our sign. Bring the mower that won&rsquo;t start, the generator that surges or the pressure washer that sat all winter. Same shop, same straight answers.</p>
+            <p class="lead">It&rsquo;s right there in our name. Bring the mower that won&rsquo;t start, the generator that surges or the pressure washer that sat all winter. Same shop, same straight answers.</p>
             <div class="pill-cloud">
               <span class="chip">Push mowers</span>
               <span class="chip">Riding mowers &amp; tractors</span>
@@ -377,7 +386,7 @@
             </div>
           </div>
           <div data-reveal="right">
-            <svg class="mower-art" viewBox="0 0 420 300" role="img" aria-labelledby="mower-art-title">
+            <svg class="mower-art" viewBox="0 44 420 236" role="img" aria-labelledby="mower-art-title">
               <title id="mower-art-title">Illustration of a lawn mower running</title>
               <defs>
                 <linearGradient id="art-foil" x1="0" y1="0" x2="1" y2="1">
@@ -447,7 +456,7 @@
         <ol class="roadmap-steps">
           <li class="roadmap-step">
             <span class="roadmap-marker" aria-hidden="true">1</span>
-            <h3>Book or drop by</h3>
+            <h3>Book or call</h3>
             <p>Request a time online or give us a call. Tell us what you&rsquo;re noticing: sounds, smells, lights or how it feels.</p>
           </li>
           <li class="roadmap-step">
@@ -476,7 +485,7 @@
       <div class="split split-wide-right" style="align-items: start">
         <div class="distance" data-reveal="left">
           <p class="eyebrow">Built to go the distance</p>
-          <h2 id="why-title">Straight talk. Careful work. Miles to spare.</h2>
+          <h2 id="why-title"><span class="nowrap">Straight talk.</span> <span class="nowrap">Careful work.</span> <span class="nowrap">Miles to spare.</span></h2>
           <p class="lead">With regular maintenance, many of today&rsquo;s vehicles run well past 200,000 miles. We&rsquo;ll help you get there, one honest recommendation at a time.</p>
           <span class="odometer" data-odometer="200000" data-label="200,000 miles">200,000</span>
           <p class="distance-caption"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg>The odometer we like to see.</p>
@@ -495,7 +504,7 @@
           <div class="promise">
             <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span>
             <h3>See what we see</h3>
-            <p>Ask to see the worn parts. We&rsquo;re happy to show you what we found and why it matters.</p>
+            <p>Ask to see the worn parts. We&rsquo;ll gladly show you what came off and explain what it means for your car.</p>
           </div>
           <div class="promise">
             <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span>
@@ -523,7 +532,7 @@
       <div class="section-head-row">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Makes we service</p>
-          <h2 id="makes-title">If it has an engine, we&rsquo;re interested.</h2>
+          <h2 id="makes-title">Chances are, we work on yours.</h2>
         </div>
         <a class="btn btn-secondary" href="brands.html" data-reveal>See every make <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
       </div>
@@ -552,19 +561,19 @@
         <h2 id="explore-title">A little help between visits.</h2>
       </div>
       <div class="grid grid-3" data-reveal-stagger>
-        <a class="card card-link explore-card" href="resources.html">
+        <a class="card card-link service-card" href="resources.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg></span>
           <h3>Dashboard light decoder</h3>
           <p>Tap a warning light to see what it means and how urgent it is.</p>
           <span class="link-arrow">Car care guides <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
         </a>
-        <a class="card card-link explore-card" href="specials.html">
+        <a class="card card-link service-card" href="specials.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg></span>
           <h3>Current specials</h3>
           <p>Seasonal offers on maintenance and small engine tune-ups.</p>
           <span class="link-arrow">See specials <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
         </a>
-        <a class="card card-link explore-card" href="fleet.html">
+        <a class="card card-link service-card" href="fleet.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></span>
           <h3>Fleet &amp; business accounts</h3>
           <p>Trucks, vans and landscaping equipment, maintained on one schedule.</p>
@@ -590,7 +599,7 @@
         <div class="faq-list" data-reveal="right">
           <details class="faq" name="home-faq" open>
             <summary>Will I get an estimate before you start work?</summary>
-            <div class="faq-body"><p>Yes. We diagnose first, then give you a clear estimate. Work starts only after you approve it, and if we find anything else along the way, we call you before doing it.</p></div>
+            <div class="faq-body"><p>Yes. We diagnose first, then give you a written estimate. Work starts only after you approve it, and if we find anything else along the way, we call you before doing it.</p></div>
           </details>
           <details class="faq" name="home-faq">
             <summary>Do you work on lawn mowers and other small engines?</summary>
@@ -598,7 +607,7 @@
           </details>
           <details class="faq" name="home-faq">
             <summary>Will servicing my car here affect my new-car warranty?</summary>
-            <div class="faq-body"><p>No. In the U.S. you&rsquo;re free to have routine maintenance done at an independent shop without voiding your manufacturer&rsquo;s warranty, as long as the work follows the recommended schedule and uses parts and fluids that meet the manufacturer&rsquo;s specifications. We give you a detailed invoice for your records.</p></div>
+            <div class="faq-body"><p>Generally, no. In the U.S. you&rsquo;re free to have routine maintenance done at an independent shop without voiding your manufacturer&rsquo;s warranty, as long as the work follows the recommended schedule and uses parts and fluids that meet the manufacturer&rsquo;s specifications. We give you a detailed invoice for your records.</p></div>
           </details>
           <details class="faq" name="home-faq">
             <summary>How often should I change my oil?</summary>
@@ -634,11 +643,11 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a class="mini-card" href="index.html" aria-label="Clinton Complete Auto Care home">
+      <a class="mini-card" href="index.html" aria-label="Clinton Complete Auto Care home" aria-current="page">
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -707,7 +716,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

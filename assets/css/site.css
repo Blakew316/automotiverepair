@@ -205,6 +205,8 @@ h4, .h4 { font-size: 1.05rem; line-height: 1.3; letter-spacing: -0.015em; font-w
 .section-head .lead { margin-top: 16px; }
 .section-head-row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 40px; margin-bottom: clamp(32px, 2rem + 1.5vw, 56px); }
 .section-head-row .section-head { margin-bottom: 0; }
+.section-head-row:has(> h2 + .link-arrow) { align-items: baseline; }
+.split > .section-head { margin-bottom: 0; }
 
 .grid { display: grid; gap: clamp(14px, .8rem + .6vw, 24px); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
@@ -212,7 +214,17 @@ h4, .h4 { font-size: 1.05rem; line-height: 1.3; letter-spacing: -0.015em; font-w
 @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 640px) and (max-width: 959.98px) { .grid-3 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
 @media (min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+@media (min-width: 640px) and (max-width: 959.98px) {
+  /* a spanning odd service card reads as a horizontal row, not an empty wide card */
+  .grid-3 > .service-card:last-child:nth-child(odd) { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 20px; row-gap: 4px; align-items: center; }
+  .grid-3 > .service-card:last-child:nth-child(odd) > .icon-tile { grid-row: 1 / span 2; margin: 0; }
+  .grid-3 > .service-card:last-child:nth-child(odd) > h3 { grid-column: 2; align-self: end; }
+  .grid-3 > .service-card:last-child:nth-child(odd) > p { grid-column: 2; align-self: start; margin: 0; }
+  .grid-3 > .service-card:last-child:nth-child(odd) > .link-arrow { grid-column: 3; grid-row: 1 / span 2; margin: 0; padding: 0; }
+}
+.grid-4 { grid-template-columns: 1fr; }
+@media (min-width: 560px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 960px) { .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .split { display: grid; gap: clamp(32px, 2rem + 3vw, 88px); align-items: center; }
 @media (min-width: 900px) {
   .split { grid-template-columns: 1fr 1fr; }
@@ -338,7 +350,9 @@ h4, .h4 { font-size: 1.05rem; line-height: 1.3; letter-spacing: -0.015em; font-w
   font-size: .94rem; font-weight: 550; color: var(--ink-2); text-decoration: none;
   transition: color var(--dur-1) var(--ease), background-color var(--dur-1) var(--ease);
 }
+.nav-link { white-space: nowrap; }
 .nav-link:hover { color: var(--ink); background: rgba(43, 37, 34, .045); }
+@media (min-width: 1080px) and (max-width: 1199.98px) { .nav-link { padding: 0 10px; } .has-menu .nav-link { padding-right: 4px; } }
 .nav-link.is-active { color: var(--ink); }
 .nav-pill {
   position: absolute; inset: 0; z-index: -1; border-radius: var(--pill);
@@ -549,13 +563,14 @@ main { view-transition-name: page; }
 .feature p { color: var(--ink-3); }
 
 .checklist { list-style: none; padding: 0; display: grid; gap: 12px; }
-.checklist li { display: flex; gap: 12px; align-items: flex-start; }
+.checklist li { display: flex; gap: 12px; align-items: flex-start; text-wrap: pretty; }
 .checklist li::before {
   content: ""; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%;
   background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234d56bf' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4L18 8.5'/%3E%3C/svg%3E") center / 14px no-repeat;
 }
 .signal-list { list-style: none; padding: 0; display: grid; gap: 12px; }
 .signal-list li {
+  text-wrap: pretty;
   display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px;
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--r);
 }
@@ -810,6 +825,7 @@ main { view-transition-name: page; }
 }
 .faq[open] { border-color: var(--line-strong); box-shadow: var(--shadow-1); }
 .faq summary {
+  text-wrap: balance;
   list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px;
   padding: 18px 20px; font-weight: 620; font-size: 1.04rem; letter-spacing: -0.015em;
 }
@@ -968,16 +984,24 @@ main { view-transition-name: page; }
    Uses a keyframe animation on `translate` (not `transform`/transition), so
    components keep their own hover transforms and transition lists. */
 .js [data-reveal]:not(.is-in) { opacity: 0; }
-.js [data-reveal].is-in { animation: reveal-up .8s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
-.js [data-reveal="left"].is-in { animation-name: reveal-left; }
-.js [data-reveal="right"].is-in { animation-name: reveal-right; }
+.js [data-reveal] { --reveal-x: 0px; --reveal-y: 26px; }
+.js [data-reveal="left"] { --reveal-x: -30px; --reveal-y: 0px; }
+.js [data-reveal="right"] { --reveal-x: 30px; --reveal-y: 0px; }
+@media (max-width: 899.98px) { .js [data-reveal="left"], .js [data-reveal="right"] { --reveal-x: 0px; --reveal-y: 26px; } }
+.js [data-reveal].is-in { animation: reveal-shift .8s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
 .js [data-reveal="scale"].is-in { animation-name: reveal-scale; }
 .js [data-reveal="fade"].is-in { animation-name: fade-in; }
-@keyframes reveal-up { from { opacity: 0; translate: 0 26px; } }
-@keyframes reveal-left { from { opacity: 0; translate: -30px 0; } }
-@keyframes reveal-right { from { opacity: 0; translate: 30px 0; } }
+@keyframes reveal-shift { from { opacity: 0; translate: var(--reveal-x) var(--reveal-y); } }
 @keyframes reveal-scale { from { opacity: 0; scale: .94; } }
-@media (max-width: 899.98px) { .js [data-reveal="left"].is-in, .js [data-reveal="right"].is-in { animation-name: reveal-up; } }
+
+/* Phones: icon feature cards in a 3-up grid become compact rows */
+@media (max-width: 639.98px) {
+  .grid-3 > .card:not(.card-link):has(> .icon-tile:first-child) { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: center; padding: 18px; border-radius: var(--r); }
+  .grid-3 > .card:not(.card-link):has(> .icon-tile:first-child) > .icon-tile { width: 44px; height: 44px; border-radius: 13px; }
+  .grid-3 > .card:not(.card-link):has(> .icon-tile:first-child) > .icon-tile .icon { width: 23px; height: 23px; }
+  .grid-3 > .card:not(.card-link):has(> .icon-tile:first-child) > h3 { margin-top: 0; font-size: 1.1rem; }
+  .grid-3 > .card:not(.card-link):has(> .icon-tile:first-child) > :not(.icon-tile, h3) { grid-column: 1 / -1; margin-top: 10px; font-size: .95rem; }
+}
 
 /* ---------- Misc utilities ---------- */
 .mt-0 { margin-top: 0 !important; }

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page Not Found | Clinton Complete Auto Care</title>
-<meta name="description" content="Sorry, we couldn't find that page. Head back home, browse our auto and small engine services, book a service or get in touch with Clinton Complete Auto Care.">
+<meta name="description" content="Sorry, we couldn’t find that page. Head back home, browse our auto and small engine services, book a service or get in touch with Clinton Complete Auto Care.">
 <meta property="og:title" content="Page not found | Clinton Complete Auto Care">
 <meta property="og:description" content="Looks like you took a wrong turn. Here are a few good places to go instead.">
 <meta name="robots" content="noindex">
@@ -51,7 +51,10 @@
   .nf-help { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 24px; color: var(--ink-3); font-size: .95rem; }
   .nf-help .icon { color: var(--accent); }
 
-  /* Destinations */
+  /* Destinations: 1 column, then 2x2, then 4 across (auto-fit left a 3 + 1 orphan around 1024px) */
+  .grid.nf-dest { grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grid.nf-dest { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 960px) { .grid.nf-dest { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   .nf-bottom { display: grid; gap: 24px; margin-top: clamp(36px, 2rem + 1.5vw, 56px); }
   @media (min-width: 900px) { .nf-bottom { grid-template-columns: 2fr 1fr; align-items: start; gap: 48px; } }
   .nf-bottom h3 { font-size: 1.1rem; }
@@ -153,7 +156,7 @@
               <a class="mega-item" href="/services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="/services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="/appointment.html">Book a service</a>
@@ -206,7 +209,7 @@
               <stop offset="0" stop-color="#dde4ff"/><stop offset=".5" stop-color="#efe6ff"/><stop offset="1" stop-color="#dff1ff"/>
             </linearGradient>
             <linearGradient id="nf-fade-grad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff" stop-opacity="1"/>
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff" stop-opacity="1"/><stop offset=".88" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
             </linearGradient>
             <mask id="nf-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="440" height="380">
               <rect width="440" height="380" fill="url(#nf-fade-grad)"/>
@@ -282,7 +285,7 @@
           <rect class="art-ink art-paper" x="296" y="124" width="8" height="94" rx="2"/>
           <rect class="art-ink" x="222" y="66" width="156" height="60" rx="9" style="fill: #fbe3bd"/>
           <rect x="228" y="72" width="144" height="48" rx="6" fill="none" stroke="var(--ink)" stroke-opacity=".3" stroke-width="1.2"/>
-          <text x="280" y="104" text-anchor="middle" font-size="22" font-weight="800" letter-spacing="1.5" fill="var(--ink)">DETOUR</text>
+          <text x="285" y="103.5" text-anchor="middle" font-size="19.5" font-weight="800" letter-spacing="1.2" fill="var(--ink)">DETOUR</text>
           <path class="nf-arrow art-ink" d="M362 112V98A9 9 0 0 0 344 98V110" style="stroke-width: 3"/>
           <path class="nf-arrow-head art-ink" d="M338 105L344 111.5L350 105" style="stroke-width: 3"/>
 
@@ -299,7 +302,7 @@
         <p class="eyebrow">Your detour</p>
         <h2 id="next-title">Where would you like to go?</h2>
       </div>
-      <div class="grid grid-4" data-reveal-stagger>
+      <div class="grid grid-4 nf-dest" data-reveal-stagger>
         <a class="card card-link service-card" href="/index.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
           <h3>Home</h3>
@@ -358,7 +361,7 @@
         <img src="/assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -427,7 +430,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

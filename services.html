@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Auto Repair &amp; Maintenance Services | Clinton Complete Auto Care</title>
-<meta name="description" content="Brakes, oil changes, diagnostics, engine, transmission, A/C, tires, suspension, electrical, inspections and small engine repair. Find the right service by symptom at Clinton Complete Auto Care.">
+<meta name="description" content="Brakes, oil changes, diagnostics, engine, transmission, A/C, tires, suspension, electrical, inspections and small engines. Find the right service by symptom.">
 <meta property="og:title" content="Services | Clinton Complete Auto Care">
 <meta property="og:description" content="Every major system on your car, truck or SUV, plus mowers and generators. Start with a symptom or browse all eleven services.">
 <!-- @partial head -->
@@ -61,7 +61,6 @@
   .page-hero-art .note-b { bottom: 2%; right: 0; animation-delay: 1.2s, 2.4s; }
 
   /* ---------- Symptom finder ---------- */
-  .finder [hidden] { display: none !important; }
   .finder { display: grid; gap: 32px; }
   .finder > * { min-width: 0; }
   @media (min-width: 960px) {
@@ -76,18 +75,11 @@
     min-height: 46px; padding: 10px 17px 10px 13px; border-radius: var(--pill);
     border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink-2);
     font-size: .96rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; text-align: left;
-    transition: border-color var(--dur-2) var(--ease), background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), transform var(--dur-1) var(--ease);
+    transition: border-color var(--dur-2) var(--ease), background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), translate var(--dur-1) var(--ease), scale var(--dur-1) var(--ease);
     -webkit-tap-highlight-color: transparent;
   }
   .symptom .icon { width: 1.15em; height: 1.15em; color: var(--accent); }
   .symptom .i-on { display: none; }
-  /* The chips fade in via data-reveal-stagger, whose shared rule replaces the
-     transition list and pins transform; keep the chip's own transitions and
-     use translate/scale (separate properties) for the hover lift and press. */
-  .js .symptom[data-reveal] {
-    transition: opacity .8s var(--ease), transform .8s var(--ease), translate var(--dur-1) var(--ease), scale var(--dur-1) var(--ease), border-color var(--dur-2) var(--ease), background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease);
-    transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s, 0s, 0s, 0s, 0s;
-  }
   .symptom:hover { border-color: var(--ink-4); translate: 0 -1px; box-shadow: var(--shadow-1); }
   .symptom:active { translate: none; scale: .97; }
   .symptom[aria-pressed="true"] {
@@ -110,7 +102,6 @@
     transform: translateX(-50%); animation: jump-in .4s var(--spring) both;
   }
   .finder-jump .icon { width: 1.1em; height: 1.1em; }
-  .finder-jump[hidden] { display: none; }
   @keyframes jump-in { from { opacity: 0; transform: translate(-50%, 16px) scale(.94); } }
   @media (min-width: 960px) { .finder-jump { display: none !important; } }
 
@@ -206,12 +197,6 @@
   @media (min-width: 640px) { .dir-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
   .dir-card { display: flex; flex-direction: column; gap: 14px; container: dircard / inline-size; transition: translate var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease); }
-  /* Cards reveal via data-reveal-stagger, whose shared rule replaces the
-     transition list and pins transform; lift with translate instead. */
-  .js .dir-card[data-reveal] {
-    transition: opacity .8s var(--ease), transform .8s var(--ease), translate var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease);
-    transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s, 0s;
-  }
   .dir-card:hover { translate: 0 -3px; box-shadow: var(--shadow-2); border-color: var(--line-strong); }
   .dir-card:hover .icon-tile { transform: rotate(-8deg) scale(1.06); background: var(--foil); }
   .dir-card:hover .icon-tile-ink { background: var(--ink); }
@@ -367,9 +352,9 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
-                <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                <a class="link-arrow" href="services.html" aria-current="page">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
               </div>
             </div>
@@ -405,7 +390,7 @@
         </nav>
         <p class="eyebrow mt-3"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg>Repair &amp; maintenance</p>
         <h1 id="page-title">Every system, one trusted shop.</h1>
-        <p class="lead">From oil changes and brakes to engine, transmission and electrical work, we look after every major system on your car, truck or SUV, plus the mowers and generators in your garage. Start with a symptom, or browse the full list.</p>
+        <p class="lead">We look after every major system on your car, truck or SUV, from brakes and oil changes to engine, transmission and electrical work, plus the mowers and generators in your garage. Start with a symptom, or browse the full list.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="appointment.html"><svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>Book a service</a>
           <a class="btn btn-secondary btn-lg" href="tel:+15555550123" data-biz-href="tel"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-biz="phone">(555) 555-0123</span></a>
@@ -586,7 +571,7 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>Service directory</p>
-        <h2 id="directory-title">Everything we do, in one place.</h2>
+        <h2 id="directory-title">Everything we do, <span class="nowrap">in one place.</span></h2>
         <p class="lead">Eleven services, grouped the way you&rsquo;d think about them. Each one has its own page with warning signs, what&rsquo;s included and common questions.</p>
       </div>
 
@@ -883,7 +868,7 @@
           <li class="roadmap-step">
             <span class="roadmap-marker" aria-hidden="true">2</span>
             <h3>We find the cause</h3>
-            <p>A technician inspects and tests to pinpoint the problem, not just the symptom.</p>
+            <p>A technician inspects and tests to find the cause behind the symptom.</p>
           </li>
           <li class="roadmap-step">
             <span class="roadmap-marker" aria-hidden="true">3</span>
@@ -959,7 +944,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -1028,7 +1013,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

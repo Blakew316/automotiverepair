@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Contact Us &amp; Directions | Clinton Complete Auto Care</title>
-<meta name="description" content="Call, email or visit Clinton Complete Auto Care. Get directions and shop hours, or send us a message about your car, truck or small engine and we'll get back to you.">
+<meta name="description" content="Call, email or visit Clinton Complete Auto Care. Get directions and shop hours, or send a message about your car, truck or small engine.">
 <meta property="og:title" content="Contact Us &amp; Directions | Clinton Complete Auto Care">
 <meta property="og:description" content="Call, email or stop by. Shop hours, directions and a quick contact form for questions about your car, truck or small engine.">
 <!-- @partial head -->
@@ -182,6 +182,7 @@
   @media (prefers-reduced-motion: reduce) {
     .map-route, .map-route-casing, .pin-drop, .pin-shadow, .map-label, .map-compass-needle { animation-delay: 0s !important; }
   }
+  .faq summary { text-wrap: pretty; } /* no one-word last lines on phones */
 </style>
 </head>
 <body data-page="contact" id="top">
@@ -278,7 +279,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -616,7 +617,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -649,7 +650,7 @@
         <li><a href="appointment.html">Book a service</a></li>
         <li><a href="resources.html">Car care guides</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
     <div class="footer-col footer-visit">
@@ -685,7 +686,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

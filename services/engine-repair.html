@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Engine Repair &amp; Cooling System | Clinton Complete Auto Care</title>
-<meta name="description" content="Engine repair and cooling system service for misfires, oil and coolant leaks, timing belts and chains, water pumps, radiators, thermostats and overheating at Clinton Complete Auto Care.">
+<meta name="description" content="Engine and cooling system repair for misfires, oil and coolant leaks, timing belts and chains, water pumps, radiators, thermostats and overheating.">
 <meta property="og:title" content="Engine Repair &amp; Cooling System | Clinton Complete Auto Care">
 <meta property="og:description" content="Overheating, leaks, misfires or a new engine noise? Careful engine and cooling system repair, with your approval first.">
 <!-- @partial head -->
@@ -31,7 +31,7 @@
 <!-- @end jsonld -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"What should I do if my engine overheats?","acceptedAnswer":{"@type":"Answer","text":"Turn off the A/C and set the heater to full hot, which pulls some heat away from the engine. Then pull over as soon as it's safe and shut the engine off. Never open a hot radiator cap or coolant reservoir, because pressurized coolant can cause serious burns. Let it cool and call us. Driving while overheating can warp the cylinder head or damage the head gasket."}},
-{"@type":"Question","name":"How often does a timing belt need to be replaced?","acceptedAnswer":{"@type":"Answer","text":"It depends on the engine. Many manufacturers call for replacement somewhere around 60,000 to 105,000 miles, and some also set a limit in years. Your owner's manual lists the interval for your vehicle. Many engines use a timing chain instead, which usually has no set replacement interval. If you're not sure which you have, ask us."}},
+{"@type":"Question","name":"How often does a timing belt need to be replaced?","acceptedAnswer":{"@type":"Answer","text":"It depends on the engine. Many manufacturers call for replacement somewhere around 60,000 to 105,000 miles, and some also set a limit in years. Your owner's manual lists the interval for your vehicle. Engines with a timing chain usually have no set replacement interval. If you're not sure which you have, ask us."}},
 {"@type":"Question","name":"What does white smoke from the exhaust mean?","acceptedAnswer":{"@type":"Answer","text":"Thin white vapor on a cold morning is usually condensation and clears up as the engine warms. Thick white smoke that keeps coming, especially with a sweet smell or a dropping coolant level, can mean coolant is burning inside the engine, often from a leaking head gasket. Have it checked soon and keep an eye on your temperature gauge. Blue-gray smoke usually means the engine is burning oil."}},
 {"@type":"Question","name":"Is a small oil leak urgent?","acceptedAnswer":{"@type":"Answer","text":"Usually it's not an emergency, but don't ignore it. Small leaks tend to grow, they can lower your oil level, and oil dripping onto hot exhaust parts can smoke or become a fire risk. Check your dipstick regularly and book an inspection. We'll find where it's coming from and tell you how soon it needs attention."}},
 {"@type":"Question","name":"Should I repair my engine or replace it?","acceptedAnswer":{"@type":"Answer","text":"It depends on the damage, the vehicle's overall condition and how long you plan to keep it. After testing, we explain what failed, what the repair involves and what it would cost, so you can weigh it against the vehicle's value and your plans. The decision is always yours."}}
@@ -65,10 +65,12 @@
   .page-hero-art .note-a { top: 0; right: 0; }
   .page-hero-art .note-b { bottom: 3%; right: 0; animation-delay: 1.2s, 2.4s; }
 
-  /* Timing belt vs chain */
+  /* Timing belt vs chain: side by side from tablet width up */
+  .timing-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .timing-card { display: grid; gap: 14px; align-content: start; }
   .timing-card .cluster { justify-content: space-between; }
   .timing-card > p { color: var(--ink-3); }
+  .timing-card li { text-wrap: pretty; }
 </style>
 </head>
 <body data-page="services" id="top">
@@ -155,7 +157,7 @@
               <a class="mega-item" href="../services/brakes.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-brake"/></svg></span><span class="mega-text"><strong>Brakes</strong><small>Pads, rotors, fluid &amp; ABS</small></span></a>
               <a class="mega-item" href="../services/oil-change.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-oil"/></svg></span><span class="mega-text"><strong>Oil &amp; Maintenance</strong><small>Oil, filters, fluids &amp; factory service</small></span></a>
               <a class="mega-item" href="../services/diagnostics.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-diagnostics"/></svg></span><span class="mega-text"><strong>Diagnostics</strong><small>Warning lights &amp; drivability</small></span></a>
-              <a class="mega-item" href="../services/engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-engine"/></svg></span><span class="mega-text"><strong>Engine &amp; Cooling</strong><small>Gaskets, timing, radiators &amp; more</small></span></a>
+              <a class="mega-item" href="../services/engine-repair.html" aria-current="page"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-engine"/></svg></span><span class="mega-text"><strong>Engine &amp; Cooling</strong><small>Gaskets, timing, radiators &amp; more</small></span></a>
               <a class="mega-item" href="../services/transmission.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-transmission"/></svg></span><span class="mega-text"><strong>Transmission</strong><small>Fluid service, clutches &amp; axles</small></span></a>
               <a class="mega-item" href="../services/heating-ac.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-ac"/></svg></span><span class="mega-text"><strong>A/C &amp; Heating</strong><small>Recharge, leaks, blower &amp; heater</small></span></a>
               <a class="mega-item" href="../services/tires-alignment.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-tire"/></svg></span><span class="mega-text"><strong>Tires &amp; Alignment</strong><small>Mount, balance, rotate &amp; align</small></span></a>
@@ -165,7 +167,7 @@
               <a class="mega-item" href="../services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="../services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="../appointment.html">Book a service</a>
@@ -329,7 +331,7 @@
         <h2 id="timing-title">Know what keeps your engine in time.</h2>
         <p class="lead">Most engines use a timing belt or a timing chain to keep the crankshaft and camshafts in step. Which one you have changes how you maintain it.</p>
       </div>
-      <div class="grid grid-2" data-reveal-stagger>
+      <div class="grid timing-grid" data-reveal-stagger>
         <div class="card timing-card">
           <div class="cluster">
             <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
@@ -456,7 +458,7 @@
           </details>
           <details class="faq" name="svc-faq">
             <summary>How often does a timing belt need to be replaced?</summary>
-            <div class="faq-body"><p>It depends on the engine. Many manufacturers call for replacement somewhere around 60,000 to 105,000 miles, and some also set a limit in years. Your owner&rsquo;s manual lists the interval for your vehicle. Many engines use a timing chain instead, which usually has no set replacement interval. If you&rsquo;re not sure which you have, ask us.</p></div>
+            <div class="faq-body"><p>It depends on the engine. Many manufacturers call for replacement somewhere around 60,000 to 105,000 miles, and some also set a limit in years. Your owner&rsquo;s manual lists the interval for your vehicle. Engines with a timing chain usually have no set replacement interval. If you&rsquo;re not sure which you have, ask us.</p></div>
           </details>
           <details class="faq" name="svc-faq">
             <summary>What does white smoke from the exhaust mean?</summary>
@@ -533,7 +535,7 @@
         <img src="../assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -542,7 +544,7 @@
         <li><a href="../services/brakes.html">Brakes</a></li>
         <li><a href="../services/oil-change.html">Oil &amp; Maintenance</a></li>
         <li><a href="../services/diagnostics.html">Diagnostics</a></li>
-        <li><a href="../services/engine-repair.html">Engine &amp; Cooling</a></li>
+        <li><a href="../services/engine-repair.html" aria-current="page">Engine &amp; Cooling</a></li>
         <li><a href="../services/transmission.html">Transmission</a></li>
         <li><a href="../services/heating-ac.html">A/C &amp; Heating</a></li>
         <li><a href="../services/tires-alignment.html">Tires &amp; Alignment</a></li>
@@ -602,7 +604,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">
@@ -630,7 +632,7 @@
       <li><a href="../services/brakes.html"><svg class="icon" aria-hidden="true"><use href="#i-brake"/></svg>Brakes<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/oil-change.html"><svg class="icon" aria-hidden="true"><use href="#i-oil"/></svg>Oil &amp; Maintenance<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/diagnostics.html"><svg class="icon" aria-hidden="true"><use href="#i-diagnostics"/></svg>Diagnostics<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
-      <li><a href="../services/engine-repair.html"><svg class="icon" aria-hidden="true"><use href="#i-engine"/></svg>Engine &amp; Cooling<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+      <li><a href="../services/engine-repair.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-engine"/></svg>Engine &amp; Cooling<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/transmission.html"><svg class="icon" aria-hidden="true"><use href="#i-transmission"/></svg>Transmission<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/heating-ac.html"><svg class="icon" aria-hidden="true"><use href="#i-ac"/></svg>A/C &amp; Heating<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/tires-alignment.html"><svg class="icon" aria-hidden="true"><use href="#i-tire"/></svg>Tires &amp; Alignment<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>

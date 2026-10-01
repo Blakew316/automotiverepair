@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Careers | Clinton Complete Auto Care &amp; Small Engine Repair</title>
-<meta name="description" content="Work with Clinton Complete Auto Care. We hire automotive technicians, small engine technicians, service advisors and shop assistants. Applications are kept on file.">
+<meta name="description" content="Work with Clinton Complete Auto Care. We hire automotive and small engine technicians, service advisors and shop assistants, and keep applications on file.">
 <meta property="og:title" content="Careers at Clinton Complete Auto Care">
 <meta property="og:description" content="Good work, done right, with good people. See the roles we hire for and send us an application.">
 <!-- @partial head -->
@@ -90,8 +90,10 @@
   .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
   .form-actions .form-note { flex: 1 1 220px; }
   @media (max-width: 479.98px) { .form-actions .btn { width: 100%; } }
-  /* site.css sets display on .form and .form-success, which would override the hidden attribute */
-  .form[hidden], .form-success[hidden], .form-status[hidden] { display: none !important; }
+  /* a section head beside its content in a .split: the split gap does the spacing (avoids a double gap when stacked) */
+  .split > .section-head { margin-bottom: 0; }
+  /* no one-word last lines in checklist items */
+  .checklist li { text-wrap: pretty; }
   .field.is-picked .select { animation: field-flash 1.4s var(--ease); }
   @keyframes field-flash { 0%, 100% { box-shadow: 0 0 0 0 transparent; } 25% { box-shadow: 0 0 0 5px var(--accent-ring); border-color: var(--accent); } }
 </style>
@@ -190,7 +192,7 @@
               <a class="mega-item" href="services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="appointment.html">Book a service</a>
@@ -362,7 +364,7 @@
         <article class="card role-card">
           <div class="role-head">
             <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
-            <div><h3>Shop Assistant / Apprentice</h3><p class="role-sub">A great way to learn the trade</p></div>
+            <div><h3>Shop Assistant&nbsp;/ Apprentice</h3><p class="role-sub">A great way to learn the trade</p></div>
           </div>
           <p>Keep the shop running smoothly while you build real, hands-on skills on the job.</p>
           <p class="role-label">What you&rsquo;d do</p>
@@ -436,7 +438,7 @@
             <li><span class="apply-num" aria-hidden="true">2</span><div><h3>We review it</h3><p>Openings vary, so we keep every application on file, even when there isn&rsquo;t a spot open right away.</p></div></li>
             <li><span class="apply-num" aria-hidden="true">3</span><div><h3>We follow up</h3><p>When there&rsquo;s a fit, we&rsquo;ll reach out to set up a conversation and ask for your résumé then.</p></div></li>
           </ol>
-          <p class="apply-call"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Questions first? Call <a class="text-link" href="tel:+15555550123" data-biz-href="tel"><span data-biz="phone">(555) 555-0123</span></a>.</span></p>
+          <p class="apply-call"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Questions first? Call <a class="text-link nowrap" href="tel:+15555550123" data-biz-href="tel"><span data-biz="phone">(555) 555-0123</span></a>.</span></p>
         </div>
 
         <div id="application">
@@ -540,7 +542,7 @@
         <img src="assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -566,7 +568,7 @@
         <li><a href="fleet.html">Fleet services</a></li>
         <li><a href="specials.html">Specials</a></li>
         <li><a href="brands.html">Makes we service</a></li>
-        <li><a href="careers.html">Careers</a></li>
+        <li><a href="careers.html" aria-current="page">Careers</a></li>
       </ul>
       <h2 class="footer-subhead">Help</h2>
       <ul>
@@ -609,7 +611,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">

@@ -66,7 +66,9 @@
       clearTimeout(timer);
       item.classList.toggle("is-open", open);
       caret.setAttribute("aria-expanded", String(open));
+      panel.inert = !open; // keep the fading-out panel out of the tab order
     };
+    panel.inert = true;
     caret.addEventListener("click", () => set(!item.classList.contains("is-open")));
     item.addEventListener("pointerenter", (e) => {
       if (e.pointerType !== "mouse") return;
@@ -104,6 +106,7 @@
     sheet.addEventListener("animationend", function done(e) {
       if (e.target !== sheet) return;
       sheet.removeEventListener("animationend", done);
+      if (!sheet.classList.contains("is-closing")) return;
       sheet.classList.remove("is-closing");
       sheet.close();
     });
@@ -112,10 +115,14 @@
     const sheet = d.getElementById(btn.dataset.openSheet);
     if (!sheet || typeof sheet.showModal !== "function") return;
     btn.addEventListener("click", () => {
+      sheet.classList.remove("is-closing");
       sheet.showModal();
       btn.setAttribute("aria-expanded", "true");
     });
-    sheet.addEventListener("close", () => btn.setAttribute("aria-expanded", "false"));
+    sheet.addEventListener("close", () => {
+      sheet.classList.remove("is-closing");
+      btn.setAttribute("aria-expanded", "false");
+    });
     sheet.addEventListener("cancel", (e) => { e.preventDefault(); closeSheet(sheet); });
     sheet.addEventListener("click", (e) => { if (e.target === sheet) closeSheet(sheet); });
     $$("[data-close-sheet]", sheet).forEach((c) => c.addEventListener("click", () => closeSheet(sheet)));

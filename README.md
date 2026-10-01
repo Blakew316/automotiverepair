@@ -34,10 +34,24 @@ The shop's real details weren't available, so these are placeholders. They all l
 2. Run `node scripts/sync.mjs`. Every page, the structured data (for Google), `sitemap.xml` and `robots.txt` are updated.
 
 Also review:
-- **`specials.html`**: the coupon offers are examples. Confirm or replace the amounts and terms.
+- **`specials.html`**: all five coupon offers are examples (each is marked `<!-- EXAMPLE OFFER -->` in the source). Confirm or replace the amounts and terms.
 - **`careers.html`**: the roles are the kinds of positions a shop like this typically hires for. Adjust to suit.
-- **`privacy.html`**: a plain-language template. Have it reviewed.
-- Copy throughout describes *how the shop works* (written estimates, approval before extra work). Make sure it matches how you actually operate.
+- **`privacy.html`**: a plain-language template that assumes Netlify Forms and no analytics. Have it reviewed.
+
+### Owner confirmation checklist
+
+The copy describes *how the shop works* rather than claiming credentials. Please confirm each of these matches reality, or edit the page:
+
+- **Everywhere**: written estimates before work, a call before anything extra, old parts shown on request, detailed invoices, road tests when it matters.
+- **Services offered**: refrigerant service for both R-134a and R-1234yf (`heating-ac`); tire sales, alignment equipment, TPMS programming (`tires-alignment`); clutches, CV axles, differential and transfer case work (`transmission`); compression and leak-down testing (`engine-repair`); battery sales (`electrical-battery`); what an oil service includes (`oil-change`).
+- **Small engines**: the equipment list (including commercial zero-turns, chainsaws, snow blowers, tillers), carburetor rebuilds and blade sharpening, and the 14 small-engine brands listed (`small-engine-repair`, `brands`).
+- **Makes**: the 31 vehicle makes on `brands.html`, and the "hybrids: call ahead" wording.
+- **Inspections**: the inspection types offered and the green/amber/red written report (`inspections`). No state safety or emissions inspection is claimed.
+- **Fleet**: that you offer fleet and landscaping-crew accounts with per-unit records (`fleet`).
+- **Diagnostics**: that any diagnostic fee is explained before testing begins (`diagnostics`, `faq`).
+- **Booking**: that customers can wait on site, and confirmation by call, text or email (`appointment`).
+
+The animated "status" chips on each page (for example "Front pads: 3 mm") are illustrations, not customer data.
 
 ## Editing
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Suspension &amp; Steering | Clinton Complete Auto Care</title>
-<meta name="description" content="Shocks and struts, springs, control arms, ball joints, tie rods, wheel bearings and power steering repair, with an alignment when the work calls for it. Clear estimates and your approval first.">
+<meta name="description" content="Shocks and struts, springs, control arms, ball joints, tie rods, wheel bearings and power steering repair, with an alignment when the work calls for it.">
 <meta property="og:title" content="Suspension &amp; Steering | Clinton Complete Auto Care">
 <meta property="og:description" content="Bouncing, clunking or wandering? Shocks, struts, ball joints, tie rods, wheel bearings and power steering repair.">
 <!-- @partial head -->
@@ -79,6 +79,15 @@
     .damper-card .icon-tile { width: 44px; height: 44px; border-radius: 13px; }
     .damper-card .icon-tile .icon { width: 22px; height: 22px; }
   }
+  /* Related services: on tablets the odd last card spans the row, so it reads as a row */
+  @media (min-width: 640px) and (max-width: 959.98px) {
+    .grid-3 > .service-card:last-child:nth-child(odd) { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 20px; row-gap: 4px; align-items: center; }
+    .grid-3 > .service-card:last-child:nth-child(odd) .icon-tile { grid-row: 1 / span 2; margin: 0; }
+    .grid-3 > .service-card:last-child:nth-child(odd) h3 { grid-column: 2; align-self: end; }
+    .grid-3 > .service-card:last-child:nth-child(odd) p { grid-column: 2; align-self: start; margin: 0; }
+    .grid-3 > .service-card:last-child:nth-child(odd) .link-arrow { grid-column: 3; grid-row: 1 / span 2; margin: 0; padding: 0; }
+  }
+  .faq summary { text-wrap: balance; }
 </style>
 </head>
 <body data-page="services" id="top">
@@ -169,13 +178,13 @@
               <a class="mega-item" href="../services/transmission.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-transmission"/></svg></span><span class="mega-text"><strong>Transmission</strong><small>Fluid service, clutches &amp; axles</small></span></a>
               <a class="mega-item" href="../services/heating-ac.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-ac"/></svg></span><span class="mega-text"><strong>A/C &amp; Heating</strong><small>Recharge, leaks, blower &amp; heater</small></span></a>
               <a class="mega-item" href="../services/tires-alignment.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-tire"/></svg></span><span class="mega-text"><strong>Tires &amp; Alignment</strong><small>Mount, balance, rotate &amp; align</small></span></a>
-              <a class="mega-item" href="../services/suspension-steering.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-suspension"/></svg></span><span class="mega-text"><strong>Suspension &amp; Steering</strong><small>Shocks, struts &amp; steering</small></span></a>
+              <a class="mega-item" href="../services/suspension-steering.html" aria-current="page"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-suspension"/></svg></span><span class="mega-text"><strong>Suspension &amp; Steering</strong><small>Shocks, struts &amp; steering</small></span></a>
               <a class="mega-item" href="../services/electrical-battery.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-battery"/></svg></span><span class="mega-text"><strong>Battery &amp; Electrical</strong><small>Batteries, alternators &amp; wiring</small></span></a>
               <a class="mega-item" href="../services/inspections.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-inspection"/></svg></span><span class="mega-text"><strong>Inspections</strong><small>Pre-purchase &amp; road-trip checks</small></span></a>
               <a class="mega-item" href="../services/small-engine-repair.html"><span class="icon-tile icon-tile-sm"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg></span><span class="mega-text"><strong>Small Engine Repair</strong><small>Mowers, generators &amp; power equipment</small></span></a>
             </div>
             <div class="mega-foot">
-              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we'll diagnose it.</p>
+              <p class="mega-note"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg> Not sure what you need? Describe the symptom and we&rsquo;ll diagnose it.</p>
               <div class="mega-actions">
                 <a class="link-arrow" href="../services.html">All services <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
                 <a class="btn btn-primary btn-sm" href="../appointment.html">Book a service</a>
@@ -221,8 +230,8 @@
         </div>
         <div class="hero-trust">
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Shocks &amp; struts</span>
-          <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ball joints &amp; tie rods</span>
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Power steering</span>
+          <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ball joints &amp; tie rods</span>
         </div>
       </div>
 
@@ -484,7 +493,7 @@
         <a class="card card-link service-card" href="tires-alignment.html">
           <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-tire"/></svg></span>
           <h3>Tires &amp; Alignment</h3>
-          <p>Straight tracking and even tire wear after repairs.</p>
+          <p>Keeps the car tracking true and tires wearing evenly after repairs.</p>
           <span class="link-arrow">Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
         </a>
         <a class="card card-link service-card" href="brakes.html">
@@ -532,7 +541,7 @@
         <img src="../assets/img/logo-white-sm.webp" alt="" width="640" height="349" loading="lazy" decoding="async">
         <span class="mini-card-foil">And Small Engine Repair</span>
       </a>
-      <p class="footer-blurb">Honest repair and maintenance for cars, trucks, and the small engines that keep your home and business running.</p>
+      <p class="footer-blurb">Honest repair and maintenance for cars, trucks and the small engines that keep your home and business running.</p>
       <p><span class="open-status" data-open-status>Shop hours</span></p>
     </div>
     <nav class="footer-col" aria-labelledby="footer-services">
@@ -545,7 +554,7 @@
         <li><a href="../services/transmission.html">Transmission</a></li>
         <li><a href="../services/heating-ac.html">A/C &amp; Heating</a></li>
         <li><a href="../services/tires-alignment.html">Tires &amp; Alignment</a></li>
-        <li><a href="../services/suspension-steering.html">Suspension &amp; Steering</a></li>
+        <li><a href="../services/suspension-steering.html" aria-current="page">Suspension &amp; Steering</a></li>
         <li><a href="../services/electrical-battery.html">Battery &amp; Electrical</a></li>
         <li><a href="../services/inspections.html">Inspections</a></li>
         <li><a href="../services/small-engine-repair.html">Small Engine Repair</a></li>
@@ -601,7 +610,7 @@
     <div class="sheet-grabber" aria-hidden="true"></div>
     <div class="sheet-head">
       <h2 id="more-sheet-title">Menu</h2>
-      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="icon-btn" type="button" data-close-sheet aria-label="Close menu" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <p class="sheet-status"><span class="open-status" data-open-status>Shop hours</span></p>
     <div class="sheet-quick">
@@ -633,7 +642,7 @@
       <li><a href="../services/transmission.html"><svg class="icon" aria-hidden="true"><use href="#i-transmission"/></svg>Transmission<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/heating-ac.html"><svg class="icon" aria-hidden="true"><use href="#i-ac"/></svg>A/C &amp; Heating<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/tires-alignment.html"><svg class="icon" aria-hidden="true"><use href="#i-tire"/></svg>Tires &amp; Alignment<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
-      <li><a href="../services/suspension-steering.html"><svg class="icon" aria-hidden="true"><use href="#i-suspension"/></svg>Suspension &amp; Steering<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
+      <li><a href="../services/suspension-steering.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-suspension"/></svg>Suspension &amp; Steering<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/electrical-battery.html"><svg class="icon" aria-hidden="true"><use href="#i-battery"/></svg>Battery &amp; Electrical<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/inspections.html"><svg class="icon" aria-hidden="true"><use href="#i-inspection"/></svg>Inspections<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
       <li><a href="../services/small-engine-repair.html"><svg class="icon" aria-hidden="true"><use href="#i-mower"/></svg>Small Engine Repair<svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></li>
