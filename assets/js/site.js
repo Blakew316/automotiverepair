@@ -226,7 +226,10 @@
         t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
         const panel = d.getElementById(t.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !on;
+        if (panel) {
+          panel.hidden = !on;
+          if (!panel.hasAttribute("tabindex")) panel.tabIndex = 0;
+        }
       });
       if (focus) tab.focus();
     };
@@ -330,7 +333,15 @@
     if (err) {
       const span = $("span", err) || err;
       if (msg && !err.dataset.fixed) span.textContent = msg;
-      if (ctrl && err.id) ctrl.setAttribute("aria-describedby", err.id);
+      if (ctrl && err.id) {
+        // Keep any hint ids the author set; reference the error only while it shows.
+        if (!("describedby" in ctrl.dataset)) {
+          ctrl.dataset.describedby = (ctrl.getAttribute("aria-describedby") || "").split(/\s+/).filter((id) => id && id !== err.id).join(" ");
+        }
+        const ids = [ctrl.dataset.describedby, msg ? err.id : ""].filter(Boolean).join(" ");
+        if (ids) ctrl.setAttribute("aria-describedby", ids);
+        else ctrl.removeAttribute("aria-describedby");
+      }
     }
   };
   const validateFields = (scope) => {
@@ -406,12 +417,15 @@
     const box = $("[data-form-error]", form);
     if (!box) return;
     const email = (d.querySelector('a[href^="mailto:"]') || {}).href || "mailto:";
-    const phoneLink = d.querySelector('a[href^="tel:"]');
+    const phoneLink = d.querySelector('.footer-contact[href^="tel:"]') || d.querySelector('a[data-biz-href="tel"]') || d.querySelector('a[href^="tel:"]');
     const subject = encodeURIComponent(form.dataset.subject || "Website request");
     const body = encodeURIComponent(summarize(form));
     box.innerHTML = `<svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><div><strong>We couldn&rsquo;t send that online.</strong> <span>Your details are still here. You can <a class="text-link" href="${email.split("?")[0]}?subject=${subject}&body=${body}">send them by email</a>${phoneLink ? ` or call us at <a class="text-link" href="${phoneLink.getAttribute("href")}">${phoneLink.textContent.trim()}</a>` : ""}.</span></div>`;
     box.hidden = false;
     box.classList.add("is-visible");
+    box.setAttribute("tabindex", "-1");
+    box.focus({ preventScroll: true });
+    box.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "center" });
   };
   window.CCA = { validateFields, submitForm, showSuccess, showError, summarize };
 

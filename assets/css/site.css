@@ -27,7 +27,7 @@
   --ink: #2b2522;
   --ink-2: #463e3a;
   --ink-3: #6a615b;
-  --ink-4: #9a918a;
+  --ink-4: #766d67;
 
   /* Foil (the holographic tagline) */
   --foil-periwinkle: #dfe5fd;
@@ -41,7 +41,7 @@
   --foil-ink: linear-gradient(100deg, #4b54c4 0%, #7b5bc6 30%, #3b7fc2 55%, #7b5bc6 80%, #4b54c4 100%);
 
   /* Signals (dashboard-light semantics, used sparingly) */
-  --ok: #2f7d4f;
+  --ok: #2a7047;
   --ok-soft: #e5f3ea;
   --warn: #9a5d12;
   --warn-soft: #fbf0de;
@@ -119,7 +119,10 @@ button, input, select, textarea { font: inherit; color: inherit; letter-spacing:
 button { cursor: pointer; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .18em; }
 p, ul, ol, dl, figure, blockquote { margin: 0; }
-ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+:where(ul, ol)[role="list"] { list-style: none; padding: 0; }
+[hidden] { display: none !important; }
+fieldset.field { border: 0; padding: 0; margin: 0; min-width: 0; }
+fieldset.field > legend { padding: 0; margin-bottom: 9px; }
 h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); color: var(--ink); text-wrap: balance; }
 p { text-wrap: pretty; }
 address { font-style: normal; }
@@ -205,7 +208,10 @@ h4, .h4 { font-size: 1.05rem; line-height: 1.3; letter-spacing: -0.015em; font-w
 
 .grid { display: grid; gap: clamp(14px, .8rem + .6vw, 24px); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
+.grid-3 { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 640px) and (max-width: 959.98px) { .grid-3 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (min-width: 960px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
 .split { display: grid; gap: clamp(32px, 2rem + 3vw, 88px); align-items: center; }
 @media (min-width: 900px) {
@@ -682,6 +688,7 @@ main { view-transition-name: page; }
 .hero + .section { padding-top: clamp(40px, 2rem + 2.5vw, 80px); }
 .page-hero-art { position: relative; display: grid; place-items: center; min-height: 240px; }
 .page-hero-art svg { width: min(100%, 440px); height: auto; overflow: visible; }
+@media (max-width: 959.98px) { .page-hero-art { width: 100%; max-width: 540px; margin-inline: auto; } }
 
 .breadcrumb { font-size: .88rem; color: var(--ink-3); }
 .breadcrumb ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -792,7 +799,7 @@ main { view-transition-name: page; }
 .odo-digit::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .45), transparent 26%, transparent 74%, rgba(0, 0, 0, .45)); }
 .odo-strip { display: flex; flex-direction: column; transition: transform 2.2s var(--ease); transition-delay: var(--d, 0s); }
 .odo-strip span { height: 1.28em; display: grid; place-items: center; }
-.odo-sep { align-self: flex-end; padding: 0 1px .12em; color: var(--ink-4); }
+.odo-sep { align-self: flex-end; padding: 0 1px .12em; color: var(--stone-300); }
 .odo-digit.is-tenth { background: linear-gradient(180deg, #e9ecff 0%, #fff 50%, #e9ecff 100%); color: var(--ink); }
 
 /* ---------- Accordion (FAQ) ---------- */
@@ -917,15 +924,15 @@ main { view-transition-name: page; }
 .cta-road .lead { margin-top: 14px; max-width: 32em; }
 .cta-road-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 479.98px) { .cta-road-actions .btn { flex: 1 1 100%; } }
-.road { position: relative; height: 64px; }
-.road-surface { position: absolute; inset: 22px 0 0; background: linear-gradient(180deg, #e9e4de, #e2dcd5); border-top: 1px solid var(--line-strong); overflow: hidden; }
-.road-dashes {
+.cta-road .road { position: relative; height: 64px; }
+.cta-road .road-surface { position: absolute; inset: 22px 0 0; background: linear-gradient(180deg, #e9e4de, #e2dcd5); border-top: 1px solid var(--line-strong); overflow: hidden; }
+.cta-road .road-dashes {
   position: absolute; left: 0; right: -80px; top: 50%; height: 3px; margin-top: -1.5px;
   background: repeating-linear-gradient(90deg, #fff 0 36px, transparent 36px 72px);
   animation: road-move 1.6s linear infinite;
 }
 @keyframes road-move { to { transform: translateX(-72px); } }
-.road-car { position: absolute; bottom: 20px; left: 0; width: 64px; height: 28px; color: var(--ink); animation: car-drive 14s var(--ease-in-out) infinite; }
+.cta-road .road-car { position: absolute; bottom: 20px; left: 0; width: 64px; height: 28px; color: var(--ink); animation: car-drive 14s var(--ease-in-out) infinite; }
 @keyframes car-drive {
   0% { transform: translateX(-80px); }
   45%, 55% { transform: translateX(calc(50vw - 32px)) translateY(-1px); }
@@ -957,14 +964,20 @@ main { view-transition-name: page; }
 .footer-links a:hover { color: var(--ink); }
 .footer-links .icon { width: 14px; height: 14px; }
 
-/* ---------- Scroll reveal ---------- */
-.js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
-.js [data-reveal="left"] { transform: translateX(-30px); }
-.js [data-reveal="right"] { transform: translateX(30px); }
-.js [data-reveal="scale"] { transform: scale(.94); }
-.js [data-reveal="fade"] { transform: none; }
-.js [data-reveal].is-in { opacity: 1; transform: none; }
-@media (max-width: 899.98px) { .js [data-reveal="left"]:not(.is-in), .js [data-reveal="right"]:not(.is-in) { transform: translateY(26px); } }
+/* ---------- Scroll reveal ----------
+   Uses a keyframe animation on `translate` (not `transform`/transition), so
+   components keep their own hover transforms and transition lists. */
+.js [data-reveal]:not(.is-in) { opacity: 0; }
+.js [data-reveal].is-in { animation: reveal-up .8s var(--ease) backwards; animation-delay: calc(var(--i, 0) * 70ms); }
+.js [data-reveal="left"].is-in { animation-name: reveal-left; }
+.js [data-reveal="right"].is-in { animation-name: reveal-right; }
+.js [data-reveal="scale"].is-in { animation-name: reveal-scale; }
+.js [data-reveal="fade"].is-in { animation-name: fade-in; }
+@keyframes reveal-up { from { opacity: 0; translate: 0 26px; } }
+@keyframes reveal-left { from { opacity: 0; translate: -30px 0; } }
+@keyframes reveal-right { from { opacity: 0; translate: 30px 0; } }
+@keyframes reveal-scale { from { opacity: 0; scale: .94; } }
+@media (max-width: 899.98px) { .js [data-reveal="left"].is-in, .js [data-reveal="right"].is-in { animation-name: reveal-up; } }
 
 /* ---------- Misc utilities ---------- */
 .mt-0 { margin-top: 0 !important; }
@@ -976,12 +989,23 @@ main { view-transition-name: page; }
 .stat-label { color: var(--ink-3); font-size: .95rem; }
 .pill-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
 .media-frame { border-radius: var(--r-xl); overflow: hidden; background: var(--stone-100); border: 1px solid var(--line); }
+.nowrap { white-space: nowrap; }
+.art-spin-rev { transform-box: fill-box; transform-origin: center; animation: art-spin-rev 6s linear infinite; }
+@keyframes art-spin-rev { to { transform: rotate(-360deg); } }
+
+/* Touch targets: standalone text actions and small buttons reach 44px */
+.section-head-row .link-arrow, .cluster .link-arrow, .hero-actions .link-arrow, .mega-actions .link-arrow { min-height: 44px; }
+@media (pointer: coarse) {
+  .btn-sm { min-height: 44px; }
+  .breadcrumb a { display: inline-flex; align-items: center; min-height: 44px; }
+  .breadcrumb { margin-block: -10px; }
+}
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .js [data-reveal] { opacity: 1; transform: none; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+  .js [data-reveal]:not(.is-in) { opacity: 1; }
   .ticker-track { animation: none; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
@@ -989,6 +1013,7 @@ main { view-transition-name: page; }
 /* ---------- Print ---------- */
 @media print {
   .site-header, .tabbar, .sheet, .cta-road, .site-footer .footer-brand .mini-card, .road-progress { display: none !important; }
-  body { background: #fff; padding: 0; }
-  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  body { background: #fff; padding: 0; min-height: 0; }
+  .skip-link { display: none !important; }
+  .js [data-reveal] { opacity: 1 !important; animation: none !important; }
 }

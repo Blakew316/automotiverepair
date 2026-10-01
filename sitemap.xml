@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.example.com/about.html</loc></url>
+  <url><loc>https://www.example.com/appointment.html</loc></url>
+  <url><loc>https://www.example.com/brands.html</loc></url>
+  <url><loc>https://www.example.com/careers.html</loc></url>
+  <url><loc>https://www.example.com/contact.html</loc></url>
+  <url><loc>https://www.example.com/faq.html</loc></url>
+  <url><loc>https://www.example.com/fleet.html</loc></url>
   <url><loc>https://www.example.com/</loc></url>
+  <url><loc>https://www.example.com/resources.html</loc></url>
+  <url><loc>https://www.example.com/services.html</loc></url>
   <url><loc>https://www.example.com/services/brakes.html</loc></url>
+  <url><loc>https://www.example.com/services/diagnostics.html</loc></url>
+  <url><loc>https://www.example.com/services/electrical-battery.html</loc></url>
+  <url><loc>https://www.example.com/services/engine-repair.html</loc></url>
+  <url><loc>https://www.example.com/services/heating-ac.html</loc></url>
+  <url><loc>https://www.example.com/services/inspections.html</loc></url>
+  <url><loc>https://www.example.com/services/oil-change.html</loc></url>
+  <url><loc>https://www.example.com/services/small-engine-repair.html</loc></url>
+  <url><loc>https://www.example.com/services/suspension-steering.html</loc></url>
+  <url><loc>https://www.example.com/services/tires-alignment.html</loc></url>
+  <url><loc>https://www.example.com/services/transmission.html</loc></url>
+  <url><loc>https://www.example.com/specials.html</loc></url>
 </urlset>

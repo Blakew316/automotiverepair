@@ -31,7 +31,7 @@ const fmtTime = (hhmm) => {
   const [h, m] = hhmm.split(":").map(Number);
   const ampm = h >= 12 ? "PM" : "AM";
   const h12 = h % 12 === 0 ? 12 : h % 12;
-  return `${h12}:${String(m).padStart(2, "0")} ${ampm}`;
+  return `${h12}:${String(m).padStart(2, "0")}\u00a0${ampm}`;
 };
 const dayHours = Object.fromEntries(DAYS.map((d) => [d, null]));
 for (const g of biz.hours) for (const d of g.days) dayHours[d] = { opens: g.opens, closes: g.closes };
